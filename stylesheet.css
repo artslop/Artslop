@@ -1,0 +1,164 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*:focus {outline: 0;}
+
+/* START MAIN STYLES */
+
+html { background: url('images/citrusmoon.jpg') top center repeat; }
+
+body { font-family: 'Open Sans', sans-serif; padding: 50px 0; }
+
+h1 { font-family: 'Barrio', cursive; color: #201806; font-size: 30px; padding: 10px 0; }
+
+p { color: #333; }
+
+a { color: #666; }
+
+a:visted { color: #000; }
+
+strong { font-weight: bold; }
+
+pre { font-size: 12px; background: #eee; border: 1px solid #999; padding: 10px; margin-bottom: 20px; display: inline-block; }
+
+/* UTILITIY CLASS SHORTCUTS */
+
+.float-left { float: left; }
+
+.float-right { float: right; }
+
+/* BASE SITE LAYOUT STYLES */
+
+header, footer { height: 50px; background: #201806; width :100%; }
+
+header { position: fixed; top:0; }
+
+footer { position: fixed; bottom: 0; }
+
+footer section { text-align: center; }
+
+footer section a { font-size: 45px; }
+
+header section, footer section, #siteContainer { max-width: 960px; margin: 0 auto; width: 100%; }
+
+header h1 { float: left; color: #fff; }
+
+header h1 a { text-decoration: none; color: #fff;  }
+
+/* FOOTER LINK STYLES */
+
+a .fa-linkedin-square { color: #fff; }
+
+a .fa-twitter-square { color: #fff; }
+
+/* MENU STYLES */
+
+#menu { float:right; margin-top: 20px; }
+
+#menu a { font-family: 'Barrio', cursive; color: #fff; display: inline-block; margin: 0 20px; text-decoration: none; }
+
+#menu a:last-of-type { margin-right: 0; }
+
+#menu .about { display: none; }
+
+/* STICKY HEADER OFFSET FIX */
+
+#intro:before, #blog:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -50px; 
+  height: 50px; 
+  visibility: hidden; 
+}
+
+/* GENERAL CONTENT STYLES */
+
+#siteContainer section { background: #fff; margin: 20px 0; box-shadow: 3px 3px 3px #333; border: 5px solid #201806; }
+
+#siteContainer section>div { padding: 0 20px 20px 20px;  }
+
+#siteContainer section p { line-height: 25px;  }
+
+section .title { font-family: 'Barrio', cursive; color: #201806; }
+
+/* ABOUT SECTION */
+
+#siteContainer #intro section { background: url('images/head.png') top left no-repeat #fff; padding: 50px 20px; }
+
+#siteContainer #intro p { padding-left: 120px; }
+
+#siteContainer #intro h1 { padding-left: 120px; color: #333; }
+
+/* BLOG SECTION */
+
+#blog p { margin-bottom: 20px; }
+
+#blog img { padding: 10px; }
+
+/* CONTACT SECTION */
+
+#contact form { margin: 0 auto; max-width: 500px; }
+
+#contact section { padding: 20px; }
+
+#contact label { color: #201806; }
+
+#contact label, #contact input, #contact textarea { display: block; margin: 5px 0; }
+
+#contact label.error { color: red; font-weight: bold; font-size: 12px; }
+
+#contact textarea, #contact input { width: 100%; padding: 5px 0; }
+
+#contact .name, #contact .email { width: 50%; float: left; }
+
+div.input, #contact label { padding: 0 5px; }
+
+#contact #submit { width: 50%; margin: 20px auto; background: #201806; font-familY: 'Barrio', cursive; color: #fff; font-size: 30px; border: 0; padding: 5px; cursor: pointer; }
+
+

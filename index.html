@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Artslop-polstrA</title>
+  <meta name="author" content="Chad Polstra">
+  <meta name="description" content="A Personal Site For My Ramblings">
+  <meta name="keywords" content="Chad Polstra, Front End Web Developer, UI Developer">
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" href="favicon/favicon.ico?v=2" type="image/x-icon">
+  <link rel="icon" href="favicon/favicon.ico?v=2" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Barrio|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <script src="https://use.fontawesome.com/988ba37fb9.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-100094145-1', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+  </head>
+  <body>
+    <header>
+        <section>
+          <h1><a href="/">Artslop.com</a></h1>
+          <div id="menu">
+          <a class="about" href="#intro">About</a> <a href="#blog">Blog</a> <a href="#contact">Contact</a>
+        </div>
+        </section>
+    </header>
+    <div id="siteContainer">
+    <!-- BEGIN ABOUT SECTION -->
+      <div id="intro">
+        <section>
+          <div>
+            <h1>HELLO!</h1>
+            <p>Welcome to my website! My name is Chad Polstra and I'm a front end web developer in Atlanta, GA. If you'd like to check out my work history visit my <a href="https://www.linkedin.com/in/chadpolstra/" target="_blank">LinkedIn</a> page. The purpose of this site is to showcase my coding style. If you'd like to view the source code check out my GIT set of this code. I'm currently looking for an opportunity in the metro Atlanta area so if you are interested in learning more about me message me through the contact form.</p>
+          </div>    
+        </section>
+      </div>
+    <!-- BEGIN BLOG SECTION -->
+      <div id="blog">
+        <section>
+          <div>
+            <h1 class="title">6/4/2017 - Simple Contact Form!</h1>
+            <img class="float-right" src="images/blog-image-4.jpg" alt="Contact Form!" />
+            <p>Today's post is dedicated to how to build an incredibly easy and simple PHP based contact form. Let's dive right in.</p>
+            <p>The first thing you need is the form itself. There are three fields I deem important to collect; name, email, and message. Therefore the form html should look something like this:</p>
+            <pre>
+&lt;form method=&quot;POST&quot; action=&quot;mail.php&quot;&gt; 
+  &lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt;
+  &lt;input type=&quot;text&quot; name=&quot;email&quot; /&gt; 
+  &lt;textarea name=&quot;message&quot;&gt;&lt;/textarea&gt; 
+  &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit&quot; /&gt; 
+&lt;/form&gt;
+            </pre>
+            <p>The POST method means your data is sent via http request rather than via the URL. This is a more secure way of sending your data vs GET. The action set for mail.php means that the data is being pushed into a new php file I've created with that name. Once the data is passed in we have to assign it to php variables and then use the php mailing service to shoot of the message. After that we echo out a confirmation and we're done! Here is the simple php code:</p>
+            <pre>
+&lt;?php $name = $_POST['name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
+$formcontent=&quot;From: $name \n Message: $message&quot;;
+$recipient = &quot;emailaddress@here.com&quot;;
+$subject = &quot;Contact Form&quot;;
+$mailheader = &quot;From: $email \r\n&quot;;
+mail($recipient, $subject, $formcontent, $mailheader) or die(&quot;Error!&quot;);
+echo &quot;Thank You!&quot;; ?&gt;
+            </pre>
+            <p>I've done a few extra things to make it work a little smoother / look better but this is a great and easy way to accomplish your own contact form! Soon I'll be delving into some form validation to prevent issues with bots and submissions with error. I hope you enjoyed the post and if you have any questions or comments please use the contact form!
+            <p>-Doc</p>
+          </div>    
+        </section>
+        <section>
+          <div>
+            <h1 class="title">6/1/2017 - Favicons!</h1>
+            <img class="float-right" src="images/blog-image-3.jpg" alt="Favicons" />
+            <p>To quote Wikipedia: A favicon (short for favorite icon), also known as a shortcut icon, website icon, tab icon, URL icon, or bookmark icon, is a file containing one or more small icons, associated with a particular website or web page. If that doesn't make sense, it's the little icon that shows up on your browser tabs (at least on the surface).</p>
+            <p>To the average developer or even non-developer this may seem like as simple and unimportant thing but in reality it is actually quite important and has quite a bit of depth. My favorite resource for all things favicon is a github somebody set up to gather any and all information they possibly could. You can view the page <a href="https://github.com/audreyr/favicon-cheat-sheet" target="_blank">here</a>.</p>
+            <p>For most situations a simple 16x16 or 32x32 px icon will cover you. You can place this in the root of your site and add the simple meta tag to call it and you're covered. Now let's say you want to fully optimize your favicon situation. Unfortunately favicons have not be well standardized except for aspect ratio 1:1. This means lots and lots of icons. Luckily there are online generators <a href="http://www.favicon-generator.org/" target="_blank">such as this one</a> that will generate icons for all of the many devices + their different models. For instance, this site supports up to 15 different favicons for browsers, apple devices, android devices, windows devices, as well as a few fallbacks. This is great for people who want to bookmark your page to their desktop or launch page.</p>
+            <p>Now let's say you have a site that gets lots of views per day and you want to redesign your favicon. Just replace it right? Not that simple unfortunately. Most browsers have caching of the favicon and you can cause many of your returning users to see the cached version of the icon if you aren't taking the right steps. The easiest way to circumvent this is to alter your favicon call by adding the following: href="http://www.yoursite.com/favicon.ico?v=2". This tells your browser that even though the file name is the same, this is a new file.</p>
+            <p>I hope you enjoyed this post and I'll be back again for another one tomorrow!</p>
+            <p>-Doc</p>
+          </div>    
+        </section>
+        <section>
+          <div>
+            <h1 class="title">5/31/2017 - HTML Shell pt. 2</h1>
+            <img class="float-right" src="images/blog-image-2.jpg" alt="HTML SHELL 2" />
+            <p>Continuing on with my coverage of HTML Shell we'll be covering FavIcon, Google Web Fonts, External Stylesheets, Google Analytics, and JQuery implementations.</p>
+            <p><strong>Include Favorites Icon?</strong> Favorites Icons (or favicons) are the little icon you see in the tabs of your browser pages. Over time this icon has changed both in support for transparency and resolution as well as being utilized for things such as tablets and phones. I'll be covering this in much more depth in a later post. 
+            <p><strong>Include Google Web Fonts?</strong> These days it's tough to make your website stand out. One of the easier things you can do is implement web fonts! Google provides a free alternative and has many to choose from. Typically I don't use this feature from htmlshell and simply grab the google fonts code when I choose my fonts.
+            <p><strong>Include CSS Stylesheet?</strong> There are several ways to include styles on a website but there are also incorrect or inefficient ways to do it as well. Preferably you should always use an external / linked stylesheet. This allows for you to organize your css and makes for easy troubleshooting. If you cannot use external stylesheets you should use a style block either in the head or in the body. The last resort is inline styles but nobody likes those so avoid if you can.</p>
+            <p><strong>Include Google Analytics?</strong> Google Analytics is a pretty simple and free analytical tool that allows you to see who has visited your site, from where, how long, etc. It's a very useful tool for sites targeting a specific demographic. Along with Google Web Fonts I generally just grab the code from Google Analytics instead of using the HTML Shell code insert.</p>
+            <p><strong>Include jQuery?</strong> One of the more powerful and widely used javascript libraries. From a front end perspective jQuery simplifies code and makes it easier for non-javascript programmers to implement simple to complex scripts. This goes on every site I build.</p>
+            <p><strong>Include Modernizr?</strong> Modernizr works similarly to the "if IE" tags from my last post. Essentially it's a script that analyzes what the end user is using technology wise and will class the html tag with the retrieved values. This can make your life much easier if you need to target specific operating systems, browsers, devices, device types, as well as whether or not they support certain technologies.</p>
+            <p>-Doc</p>
+          </div>    
+        </section>
+        <section>
+          <div>
+            <h1 class="title">5/30/2017 - New Site! / HTML Shell pt. 1</h1>
+            <img class="float-right" src="images/blog-image-1.jpg" alt="HTML SHELL" />
+            <p>First blog post! The purpose of this blog is simply to highlight my development process as well as to maybe help out some developers who may need some tips. I will be adding many features to the site over time and while I do so I'll be documenting it here.</p>
+            <p>For today's post I'm going to go over the first few features on HTMLShell.com. I use this site for most static html sites to generate the starter html. It simply cuts down on time and makes it a little easier to get started.</p>
+            <p><strong>Include IE Conditional HTML Tag?</strong> An important trait for a front end developer is to understand the intricacies of each and every popular browser, it's advantages, and it's weaknesses. If your site looks great in Chrome and Firefox but has issues rendering in IE then this tool can be a good solution for you. Essentially it's looking to see which browser the end user is viewing the site in and then (if you're using IE) it will add the necessary classes. This makes it easy to fix an issue on specific IE browsers.</p>
+            <p><strong>Include X-UA-Compatible Meta Tag?</strong> This particular tag can be explained two ways; Simply and Very Detailed. If you'd like to see the very detailed explanation you can check out <a href="https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do" target="_blank">this stack overflow article</a>. For the simple explaination, this is another fix for Microsoft browsers essentially telling them what version of browser they should render the page as. This can fix issues in advance without having to use the IE conditional css stuff I've gone over above.</p>
+            <p><strong>Include Viewport Meta Tag?</strong> This is a meta tag that tells devices how to view your site on multiple screen resolutions. Without this tag and setting images / tags to have large set widths can cause horizontal scrolling on smaller devices. This tag states up front that the page should scale to the screen.</p>
+            <p><strong>Include Common Meta Tags?</strong> Ever since the dot com boom people have been trying to find the best and easist ways to manipulate the system to get views and in turn conversion to make money. Meta tags were developed to try to help search engines focus search and give relevant results to users. This set of meta tags have much less search indexing relevance than they used to but are still very important as this is the data that shows up on the search engine queries themselves. Be sure to always fill in a title and a description (author and keywords tend to have very little impact).</p>
+            <p>That's it for today, I'll be covering more tomorrow!</p> 
+            <p>-Doc</p>
+          </div>    
+        </section>
+      </div>
+    <!-- BEGIN CONTACT SECTION --> 
+      <div id="contact">
+        <section>
+        <h1 class="title">Contact</h1>
+          <form id="form" action="mail.php" method="POST">
+            <p id="submitSuccess"></p>
+
+            <div class="name">
+              <label>Name: <span>*</span></label>
+              <div class="input">
+                <input type="text" id="name" name="name" />
+              </div>
+            </div>
+            <div class="email">
+              <label>Email: <span>*</span></label>
+              <div class="input">
+                <input type="text" id="email" name="email" />
+              </div>
+            </div>
+
+            <div>
+              <label>Message:</label>
+              <div class="input">
+                <textarea id="message" name="message" ></textarea>
+              </div>
+                <input type="submit" id="submit" value="Send Message"/>
+            </div>
+          </form>
+        </section>
+      </div>
+  </div>
+    <footer>
+      <section>
+        <a href="https://www.linkedin.com/in/chadpolstra/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>&nbsp;
+        <a href="https://twitter.com/DocArtslop" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+      </section>
+    </footer>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
+  <script src="js/artslop.js" type="text/javascript"></script>
+  <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+  <script>
+    // validate signup form on keyup and submit
+    $("#form").validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2
+        },
+        email: {
+          required: true,
+          email: true        
+        },
+      },
+      messages: {
+        name: {
+          required: "Please Enter A Name",
+          minlength: "Your Name Is Too Short!"
+        },
+        email: {
+          required: "Please Enter An Email",
+          email: "You Must Enter A Valid Email!"
+        }
+      }
+    });
+  </script>
+  </body>
+</html>
