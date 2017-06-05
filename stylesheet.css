@@ -141,6 +141,8 @@ section .title { font-family: 'Barrio', cursive; color: #201806; }
 
 #blog img { padding: 10px; }
 
+#blog section .title { margin-top: 10px; }
+
 /* CONTACT SECTION */
 
 #contact form { margin: 0 auto; max-width: 500px; }
