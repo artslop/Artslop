@@ -6,3 +6,25 @@ I plan on continuing to add more and more features and content to the site so do
 If you'd like to reach out to me please use the contact feature on the site and I look forward to hearing from you!
 
 -Doc
+
+Current Technologies Include:
+
+HTML5
+
+CSS3
+
+PHP
+
+Javascript / jQuery
+
+Modernizer
+
+jQuery Validate
+
+Google Fonts
+
+Google Analytics
+
+jQuery UI (not being utilized at this point)
+
+FontAwesome Font Icons
